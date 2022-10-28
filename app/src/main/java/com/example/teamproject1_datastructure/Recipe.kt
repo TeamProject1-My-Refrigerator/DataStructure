@@ -6,7 +6,7 @@ import java.util.LinkedList
 class Recipe(name:String) {
     //변수
     var name : String = name         //레시피 이름
-    var picture : String = ""       //레시피 사진 url 스트링
+    var picture : Int = 0       //레시피 사진 url 스트링
     var desc : String = ""          //레시피 설명
     var youtubeLink : String = ""   //레시피 설명 유튜브 링크
     var category : String = ""      //레시피의 카테고리 ex)한식,중식,양식,,

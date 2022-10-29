@@ -39,7 +39,7 @@ fun findCategory(recipeList:Array<Recipe>, category:String):Array<Recipe?>{
 
 //레시피 검색 함수
 fun findRecipe(recipeList:Array<Recipe>, ingredientList:LinkedList<Ingredients>):Array<Recipe?>{
-    var possibleRecipe: Array<Recipe?> = arrayOfNulls<Recipe>(20) //가능한 레시피 목록
+    var possibleRecipe: Array<Recipe?> = arrayOfNulls<Recipe>(21) //가능한 레시피 목록
     var recipeIndex:Int = 0
     var possible:Boolean = false
     for(i in 0 until recipeList.size){
@@ -78,15 +78,15 @@ fun main(){
 
     var recipeList:Array<Recipe> = arrayOf(kimchiBog,gimbap,pasta,simple)
 
-    // 재료 추가
-    val egg = Ingredients("달걀", 15, "2022-10-20", "2022-10-10", "냉장보관" )
-    val potato = Ingredients("감자", 10, "2022-11-02", "2022-10-22", "실온보관")
-    val garlic = Ingredients("마늘", 8, "2022-11-15", "2022-10-25", "실온보관")
-    val onion = Ingredients("양파", 3, "2022-11-14", "2022-10-26", "냉장보관")
-    val leek = Ingredients("대파", 2, "2022-11-02", "2022-10-22", "냉장보관")
-    val kimchi = Ingredients("김치", 1, "2023-03-03", "2022-10-12", "냉장보관")
-
-    var ingredientsList :LinkedList<Ingredients> = LinkedList(listOf(egg,potato,garlic,onion,leek,kimchi))
-
-    println(findRecipe(recipeList,ingredientsList))
+//    // 재료 추가
+//    val egg = Ingredients("달걀", 15, "2022-10-20", "2022-10-10", "냉장보관" )
+//    val potato = Ingredients("감자", 10, "2022-11-02", "2022-10-22", "실온보관")
+//    val garlic = Ingredients("마늘", 8, "2022-11-15", "2022-10-25", "실온보관")
+//    val onion = Ingredients("양파", 3, "2022-11-14", "2022-10-26", "냉장보관")
+//    val leek = Ingredients("대파", 2, "2022-11-02", "2022-10-22", "냉장보관")
+//    val kimchi = Ingredients("김치", 1, "2023-03-03", "2022-10-12", "냉장보관")
+//
+//    var ingredientsList :LinkedList<Ingredients> = LinkedList(listOf(egg,potato,garlic,onion,leek,kimchi))
+//
+//    println(findRecipe(recipeList,ingredientsList))
 }

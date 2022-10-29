@@ -106,7 +106,7 @@ fun main(){
             "14. 건더기 스프 5개, 분말 스프 5개를 넣어준다.\n" +
             "15. 라면 5개를 넣고 잘 풀어주면서 끓여준다.\n" +
             "- 이때 끓이는 시간은 라면 면발의 익힘 정도(기호)에 따라 조절한다.\n" +
-            "16. 완성 그릇에 담고 고명으로 송송 썬 대파를 곁들인다.\n", "https://youtu.be/YISYMu2Txp4","중식", arrayOf("삼겹살","양파","대파"),
+            "16. 완성 그릇에 담고 고명으로 송송 썬 대파를 곁들인다.\n", "https://youtu.be/YISYMu2Txp4","중식", arrayOf("돼지고기","양파","대파"),
         arrayOf("양배추","고춧가루","진간장"))
 
     //양식
@@ -264,12 +264,75 @@ fun main(){
     var recipeList:Array<Recipe> = arrayOf(kimchiFriedRice,eggFriedRice,braisedMackerel,braisedPorkKimchi,bibimbap,bulgogi,grilledPork,mapatopu,dongpayuk,tangsuyuk,jjambbong,steak,creamPasta,vongolePasta,gambas,ramen,porkRice,porkCutlet,friedUdong,tteokbokki,curry,gimbap,rabokki,padthai,kebob)
 
     // 재료 추가
-    val egg = Ingredients("달걀", 15, "2022-10-20", "2022-10-10", "냉장보관" )
-    val potato = Ingredients("감자", 10, "2022-11-02", "2022-10-22", "실온보관")
-    val garlic = Ingredients("마늘", 8, "2022-11-15", "2022-10-25", "실온보관")
-    val onion = Ingredients("양파", 3, "2022-11-14", "2022-10-26", "냉장보관")
-    val leek = Ingredients("대파", 2, "2022-11-02", "2022-10-22", "냉장보관")
-    val kimchi = Ingredients("김치", 1, "2023-03-03", "2022-10-12", "냉장보관")
+    val kimchi = Ingredients("김치", "2024-03-03", "2022-03-03", 0, "냉장: 밀폐 용기에 배추 단면이 위로 오도록 담아 냉장 (0~5도) 보관한다.\n" +
+            "*온도 변화가 많으면 김치가 빨리 익어 김치 전용 냉장고에 넣어 보관한다.\n" +
+            "*김치가 발효되면서 가스가 발생해 국물이 넘칠 위험이 있어, 용기의 7~80% 정도만 담는다\n")
+    val leek_0 = Ingredients("대파", "2022-11-12", "2022-10-29", 0, "냉장: \n" +
+            "1.\t대파를 보관용기에 담기 쉽게 잘라준다.\n" +
+            "2.\t흰대에서 나온 껍질과 대파잎은 육수용으로 골라내고, 나머지 껍질은 버린다. \n" +
+            "3.\t씻지않고 보관한다.\n" +
+            "4.\t사용시 씻어 사용한다. \n")
+    val leek_1 = Ingredients("대파", "2023-10-29", "2022-10-29", 1, "냉동: \n" +
+            "1.\t대파를 보관용기에 담기 쉽게 잘라준다.\n" +
+            "2.\t흰대에서 나온 껍질과 대파잎은 육수용으로 골라내고, 나머지 껍질은 버린다. \n" +
+            "3.\t씻지않고 보관한다.\n" +
+            "4.\t사용시 씻어 사용한다. \n")
+    val crab = Ingredients("꽃게","2023-10-28","2022-10-28",1,"냉동: 지퍼팩에 넣어서 보관한다")
+    val radish_0 = Ingredients("무","2022-11-03","2022-10-27",0,"냉장: 무청(무 끝에 뾰족한 부분)을 제거하고, 비닐호일로 감싼뒤 보관한다.")
+    val radish_1 = Ingredients("무","2023-11-03","2022-10-27",1,"냉동: 무청(무 끝에 뾰족한 부분)을 제거하고, 비닐호일로 감싼뒤 보관한다.")
+    val soybeanPaste = Ingredients("된장","2023-08-03","2022-10-10",0,"냉장: 먹을 만큼의 된장을 따로 보관하여 오염되는 것을 방지한다. ")
+    val onion = Ingredients("양파", "2022-10-31", "2022-10-24", 0, "냉장: 세척하지 않고, 각각 랩에 싸서 보관한다")
+    val cheongyangRedPepper = Ingredients("청양고추","2022-11-01","2022-10-25",0,"냉장: 밀폐용기에 키친타월을 깔고, 고추, 키친타원 순으로 겹겹이 쌓아 보관한다.")
+    val mackerel = Ingredients("고등어","2022-11-13","2022-10-13",1,"냉동: 고등어를 손질한뒤 식초물과, 소금을 뿌리고, 지퍼백에 넣어 보관한다. ")
+    val groundPork = Ingredients("간 돼지고기","2023-10-13","2022-10-13",1,"냉동: 지퍼백에 담아 납작하게 해서 보관한다.")
+    val pork = Ingredients("돼지고기","2022-11-06","2022-10-23",0,"냉장, 냉동:\n" +
+            "1.\t바닥에 랩이나 종이호일을 깔고 삼겹살 한줄을 얹어준다.\n" +
+            "2.\t얹어준 삼겹살 위로 랩을 자르지 말고 위치만 옮겨 삼겹살을 덮어준다.\n" +
+            "3.\t랩으로 덮어진 삼겹살 한줄 위에 비스듬하게 다른 삼겹살을 한줄더 얹어준다.\n" +
+            "4.\t새로 얹어둔 삼겹살을 2번과 동일한 방법으로 랩을 자르지 않고 다시 다른쪽으로 이동해서 덮어준다.\n" +
+            "5.\t구매한 삼겹살을 모두 같은 방법으로 랩으로 포장해둔다.\n")
+    val beef = Ingredients("소고기","2022-11-05","2022-10-29",0,"냉장, 냉동: 소분하여 비닐에 넣은 후에 용기에 담아 보관한다.")
+    val maraSource = Ingredients("마라소스","2023-08-20","2022-09-01",0,"냉장보관")
+    val beanSprouts = Ingredients("콩나물","2022-11-04","2022-10-30",0,"냉장: 용기에 키친타월을 깔고나서 물기를 제거한 콩나물을 넣고 보관한다.")
+    val cabbage = Ingredients("배추","2022-11-05","2022-10-31",0,"냉장: 배추를 신문지로 감싼 후에 비닐봉지에 넣어서 보관한다.")
+    val tofu = Ingredients("두부","2022-10-30","2022-10-27",0,"냉장: \n" +
+            "1.\t밀폐용기에 담은 후에 두부가 물에 잠길 정도로 물을 붓는다. \n" +
+            "2.\t소금을 한 꼬집 정도 넣고 보관한다.\n" +
+            "*한번 개봉한 두부는 금방 상하기 때문에 빨리 먹는 것을 추천한다.\n")
+    val shavedPork = Ingredients("대패삼겹살","2023-07-28","2022-08-30",1,"냉동: 비닐에 대패삼겹살을 펼치고 말아주고나서 지퍼팩에 담아 보관한다.")
+    val chicken = Ingredients("닭고기","2022-11-03","2022-10-27",0,"냉장, 냉동: 밀폐용기에 담아 보관하다.")
+    val bacon = Ingredients("베이컨","2023-10-02","2022-10-01",1,"냉동: 베이컨을 지퍼백에 소분하여 넣어준뒤 쌓아서 보관한다.")
+    val milk = Ingredients("우유","2022-11-05","2022-10-29",0,"냉장보관")
+    val lettuce = Ingredients("상추","2022-11-07","2022-10-31",0,"냉장: 밀폐용기 바닥에 키친타월과 상추를 번갈아가며 쌓아서 보관한다.")
+    val cheeze = Ingredients("치즈","2022-10-31","2022-10-24",0,"냉장: 공기가 접촉하지 않게 해서 보관한다.")
+    val sweetPotato = Ingredients("고구마","2022-11-31","2022-10-30",0,"냉장: 물기를 없앤 고구마를 신문지에 감싸서 보관한다.")
+    val egg = Ingredients("달걀", "2022-11-03", "2022-10-20", 0, "냉장보관")
+    val shrimp = Ingredients("새우","2023-07-20","2022-07-20",1,"냉동: 새우를 지퍼백에 소분해서 담아 보관한다.")
+    val garlic = Ingredients("마늘", "2022-12-15", "2022-10-15", 0, "냉장:\n" +
+            "1.\t밀폐용기에 설탕을 1cm두께로 깔아준다.\n" +
+            "2.\t종이호일을 깔아주고 마늘을 넣어서 보관한다. \n")
+    val crushedGarlic = Ingredients("다진마늘","2023-10-15","2022-10-15",1,"냉동:\n" +
+            "1.\t얼음틀에 간마늘을 얼려준다.\n" +
+            "2.\t얼린 간마늘을 지퍼백에 넣어서 보관한다. \n")
+    val udonNoodles = Ingredients("우동면","2023-11-19","2022-10-01",1,"냉동보관")
+    val anchovy = Ingredients("멸치","2023-09-09","2022-08-10",1,"밀폐용기에 담아 보관한다.")
+    val riceCake = Ingredients("떡","2023-02-12","2022-07-21",1,"냉동: 소분한 떡을 랩을 씌우고 지퍼백에 담아 보관한다.")
+    val fishCake = Ingredients("어묵","2022-10-31","2022-10-24",0,"냉장, 냉동: 지퍼백에 넣어 보관한다.")
+    val spinach = Ingredients("시금치","2022-11-07","2022-10-31",0,"냉장: 물에 씻지 않은 시금치를 신문지나 키친타월에 감싸 지퍼백에 담아 보관한다.")
+    val pickledRadish = Ingredients("단무지","2022-11-20","2022-10-20",0,"냉장: 밀폐용기에 물과 식초 그리고 설탕을 2:1:1의 비율로 섞은 후에 단무지를 넣어서 보관한다.")
+    val carrot = Ingredients("당근","2022-11-04","2022-10-28",0,"냉장: 물에 씻지 않은 당근을 신문지나 키친타월에 감싸 지퍼백에 담아 보관한다.")
+    val sukju = Ingredients("숙주","2022-11-03","2022-10-31",0,"냉장: 용기에 키친타월을 깐후 물기를 제거한 콩나물을 넣고 보관")
+    val apple = Ingredients("사과","2022-11-05","2022-10-22",0,"랩으로 싸서 보관한다.")
+    val paprika = Ingredients("파프리카","2022-11-03","2022-10-27",0,"냉장: 물기를 제거한 파프리카를 지퍼팩에 넣어서 보관한다.")
+    val coke = Ingredients("콜라","2023-05-03","2022-08-23",0,"냉장보관")
+    val cucumber = Ingredients("오이","2022-11-08","2022-10-25",0,"냉장: 물기를 제거한 오이를 랩이나 키친타월로 감싸서 보관한다.")
+    val sausages = Ingredients("소세지","2023-10-23","2022-08-28",1,"냉동: 소시지를 소분해서 지퍼팩에 넣어서 보관한다.")
+    val orange = Ingredients("오렌지","2022-11-07","2022-10-31",0,"냉장: 물기를 제거한 오렌지를 랩으로 감싸서 보관한다.")
+    val salmon = Ingredients("연어","2022-11-02","2022-10-31",0,"냉장: 연어에 청주를 조금 발라준 뒤 랩으로 밀봉하여 용기에 넣어서 보관한다.")
+    val sweetPumpkin = Ingredients("단호박","2022-11-06","2022-10-30",0,"냉장: 씨앗을 제거한 단호박을 먹기 좋은 크기로 잘라서 밀폐용기에 넣어서 보관한다.")
+    val watermelon = Ingredients("수박","2022-11-07","2022-10-31",0,"냉장: 알맞은 크기로 자른 수박을 밀폐용기에 넣어서 보관한다.")
 
-    var ingredientsList : LinkedList<Ingredients> = LinkedList(listOf(egg,potato,garlic,onion,leek,kimchi))
+    var ingredientsList : LinkedList<Ingredients> = LinkedList(listOf(kimchi,leek_0,leek_1,crab,radish_0,radish_1,onion,cheongyangRedPepper,mackerel,groundPork,pork,beef,maraSource,beanSprouts,cabbage,tofu,shavedPork,chicken,milk,lettuce,cheeze,sweetPotato,egg,shrimp,garlic,crushedGarlic,udonNoodles,anchovy,riceCake,fishCake,spinach,carrot,pickledRadish,sukju,apple,paprika,coke,cucumber,sausages,orange,salmon,sweetPumpkin,watermelon,bacon,soybeanPaste))
+
+    println(findRecipe(recipeList,ingredientsList))
 }

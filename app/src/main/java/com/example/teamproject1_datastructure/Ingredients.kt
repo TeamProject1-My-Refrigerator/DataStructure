@@ -7,17 +7,17 @@ class Ingredients(name:String) {
     //변수
     var name : String = name            //재료 이름
     var picture : String = ""           //재료 사진
-    var num : Int = 0                   // 재료의 개수
     var expirationDate : String = ""    //재료의 유통기한. 형식: 2022-10-10
     var expirationDDay : Int = 0        //재료의 남은 유통기한. 현재 날짜 기준.
     var inputDate : String = ""         //재료를 추가한 날짜. 형식: 2022-10-10
+    var type : Int = 0                  //재료의 타입, 냉장=0, 냉동=1 (추후.실온=2)
     var storageMethod : String = ""     //재료 보관 방법
 
     //보조생성자
-    constructor(name:String, num:Int, expirationDate:String, inputDate:String, storageMethod:String):this(name){
-        this.num = num
+    constructor(name:String, expirationDate:String, inputDate:String, type:Int, storageMethod:String):this(name){
         this.expirationDate = expirationDate
         this.inputDate = inputDate
+        this.type = type
         this.storageMethod = storageMethod
         this.expirationDDay = calculateDDay(expirationDate)
     }
@@ -72,17 +72,17 @@ fun merge(list:LinkedList<Ingredients>, start: Int, mid: Int, end: Int) {
 }
 
 fun main(){
-    val egg = Ingredients("달걀", 15, "2022-10-20", "2022-10-10", "냉장보관" )
-    val potato = Ingredients("감자", 10, "2022-11-02", "2022-10-22", "실온보관")
-    val garlic = Ingredients("마늘", 8, "2022-11-15", "2022-10-25", "실온보관")
-    val onion = Ingredients("양파", 3, "2022-11-14", "2022-10-26", "냉장보관")
-    val leek = Ingredients("대파", 2, "2022-11-02", "2022-10-22", "냉장보관")
-
-    var ingredientsList :LinkedList<Ingredients> = LinkedList(listOf(egg,potato,garlic,onion,leek))
-
-    mergeSort(ingredientsList,0,ingredientsList.size-1)
-
-    for(i in ingredientsList.indices){
-        println(ingredientsList[i].name)
-    }
+//    val egg = Ingredients("달걀", 15, "2022-10-20", "2022-10-10", "냉장보관")
+//    val potato = Ingredients("감자", 10, "2022-11-02", "2022-10-22", "실온보관")
+//    val garlic = Ingredients("마늘", 8, "2022-11-15", "2022-10-25", "실온보관")
+//    val onion = Ingredients("양파", 3, "2022-11-14", "2022-10-26", "냉장보관")
+//    val leek = Ingredients("대파", 2, "2022-11-02", "2022-10-22", "냉장보관")
+//
+//    var ingredientsList :LinkedList<Ingredients> = LinkedList(listOf(egg,potato,garlic,onion,leek))
+//
+//    mergeSort(ingredientsList,0,ingredientsList.size-1)
+//
+//    for(i in ingredientsList.indices){
+//        println(ingredientsList[i].name)
+//    }
 }

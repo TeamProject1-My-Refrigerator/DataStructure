@@ -71,6 +71,17 @@ fun merge(list:LinkedList<Ingredients>, start: Int, mid: Int, end: Int) {
     }
 }
 
+// 유통기한 임박 알림 함수
+fun notifyExpirationDate(list:LinkedList<Ingredients>):Boolean{
+    var needNotify : Boolean = false
+    for(i in 0 until list.size){
+        if(list[i].expirationDDay <= 3){
+            needNotify = true
+        }
+    }
+    return needNotify
+}
+
 fun main(){
 //    val egg = Ingredients("달걀", 15, "2022-10-20", "2022-10-10", "냉장보관")
 //    val potato = Ingredients("감자", 10, "2022-11-02", "2022-10-22", "실온보관")

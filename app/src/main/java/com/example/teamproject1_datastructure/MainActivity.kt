@@ -334,5 +334,11 @@ fun main(){
 
     var ingredientsList : LinkedList<Ingredients> = LinkedList(listOf(kimchi,leek_0,leek_1,crab,radish_0,radish_1,onion,cheongyangRedPepper,mackerel,groundPork,pork,beef,maraSource,beanSprouts,cabbage,tofu,shavedPork,chicken,milk,lettuce,cheeze,sweetPotato,egg,shrimp,garlic,crushedGarlic,udonNoodles,anchovy,riceCake,fishCake,spinach,carrot,pickledRadish,sukju,apple,paprika,coke,cucumber,sausages,orange,salmon,sweetPumpkin,watermelon,bacon,soybeanPaste))
 
-    println(findRecipe(recipeList,ingredientsList))
+//    println(findRecipe(recipeList,ingredientsList))
+    mergeSort(ingredientsList,0,ingredientsList.size-1)
+    for(i in ingredientsList.indices){
+        println(ingredientsList[i].name)
+    }
+
+    println(notifyExpirationDate(ingredientsList))
 }
